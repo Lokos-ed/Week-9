@@ -8,7 +8,7 @@ After all cards have been played, display the score and declare the winner. */
 class Deck {
     constructor() {
         this.deck = []
-        this.ranks = ["Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"]
+        this.ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"]
         this.suits = ["Spades 🗡️", "Hearts ❤️", "Diamonds 💎", "Clubs 🍀"]
     }
     //This is the function for making the deck.
@@ -50,17 +50,40 @@ class Player {
            deck.deck.splice(cardIndex, 1)
         }
     }
+    drawCard() {
+        var cardPick = this.hand.pop()
+        return cardPick
+    } 
+
 
 
 }
 const player1 = new Player();
-player1.drawHand();
-console.log(player1.hand)
 const player2 = new Player();
+player1.drawHand();
 player2.drawHand();
-console.log(player2.hand);
 
-/*Find a way to randomize deck array (shuffle) before making player classes draw their hands (26 cards)
-Make sure program knows Ace > King > Queen > Jack > 10
+for (a = 0; a < 26; a++) {
+    player1card = player1.drawCard(), player2card = player2.drawCard()
+    if (player1card.value > player2card.value) {
+        console.log("player 1 earns a point")
+        player1.points += 1
+        `Player One Score: ${player1.points}, Player Two Score: ${player2.points}`
+    } else if (player1card.value < player2card.value) {
+        `Player 2 earns a point!`
+        player2. points += 1
+        `Player 1 Score: ${player1.points}, Player 2 Score: ${player2.points}`
+    } else {
+        `It's a tie! No one earns a point.`
+        `Player One Score: ${player1.points}, Player Two Score: ${player2.points}`
+    }
 
-*/
+}
+if (player1.points > player2.points) {
+    `Player 1 has won with a total of ${player1.points}! Player 2 has lost with a total of ${player2.points}.`
+} else if (player1.points < player2.points) {
+    `Player 2 has won with a total of ${player2.points}! Player 1 has lost with a total of ${player1.points}.`
+} else {
+    `The game is a draw, no one wins.`
+    `Player 1 Score: ${player1.points}, Player 2 Score: ${player2.points}`
+}
