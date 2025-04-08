@@ -63,27 +63,36 @@ const player2 = new Player();
 player1.drawHand();
 player2.drawHand();
 
-for (a = 0; a < 26; a++) {
+for (a = 1; a < 27; a++) {
     player1card = player1.drawCard(), player2card = player2.drawCard()
     if (player1card.value > player2card.value) {
-        console.log("player 1 earns a point")
+        console.log(`Turn ${[a]}`)
+        console.log(`Player 1 Card: ${player1card.name} Player 2 Card: ${player2card.name}`)
+        console.log(`Player 1 Earns a Point!`)
         player1.points += 1
-        `Player One Score: ${player1.points}, Player Two Score: ${player2.points}`
+        console.log(`Player One Score: ${player1.points}, Player Two Score: ${player2.points}`)
+        console.log("--------------------------------------------------------------------------")
     } else if (player1card.value < player2card.value) {
-        `Player 2 earns a point!`
+        console.log(`Turn ${[a]}`)
+        console.log(`Player 1 Card: ${player1card.name} Player 2 Card: ${player2card.name}`)
+        console.log(`Player 2 earns a point!`)
         player2. points += 1
-        `Player 1 Score: ${player1.points}, Player 2 Score: ${player2.points}`
+        console.log(`Player 1 Score: ${player1.points}, Player 2 Score: ${player2.points}`)
+        console.log("--------------------------------------------------------------------------")
     } else {
-        `It's a tie! No one earns a point.`
-        `Player One Score: ${player1.points}, Player Two Score: ${player2.points}`
+        console.log(`Turn ${[a]}`)
+        console.log(`Player 1 Card: ${player1card.name} Player 2 Card: ${player2card.name}`)
+        console.log(`It's a tie! No one earns a point.`)
+        console.log(`Player One Score: ${player1.points}, Player Two Score: ${player2.points}`)
+        console.log("--------------------------------------------------------------------------")
     }
 
 }
 if (player1.points > player2.points) {
-    `Player 1 has won with a total of ${player1.points}! Player 2 has lost with a total of ${player2.points}.`
+    console.log(`Player 1 has won with a total of ${player1.points}! Player 2 has lost with a total of ${player2.points}.`)
 } else if (player1.points < player2.points) {
-    `Player 2 has won with a total of ${player2.points}! Player 1 has lost with a total of ${player1.points}.`
+    console.log(`Player 2 has won with a total of ${player2.points}! Player 1 has lost with a total of ${player1.points}.`)
 } else {
-    `The game is a draw, no one wins.`
-    `Player 1 Score: ${player1.points}, Player 2 Score: ${player2.points}`
+    console.log(`The game is a draw, no one wins.`)
+    console.log(`Player 1 Score: ${player1.points}, Player 2 Score: ${player2.points}`)
 }
